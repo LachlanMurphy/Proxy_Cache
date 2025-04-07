@@ -3,14 +3,14 @@
 
 CC = gcc
 
-CFLAGS = -g -Wall -pthread -lpthread
+CFLAGS = -g -Wall -pthread -lpthread -lcrypto -lssl
 
 default: all
 
 all: proxy
 
 proxy: proxy.c
-	$(CC) $(CFLAGS) -o proxy proxy.c array.c
+	$(CC) -o proxy proxy.c array.c dynamic_array.c $(CFLAGS)
 
 clean:
 	rm proxy
